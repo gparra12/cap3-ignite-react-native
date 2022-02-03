@@ -39,15 +39,16 @@ export const CarPrice = styled.Text`
   font-family: ${({ theme }) => theme.fonts.secondary_500};
   color: ${({ theme }) => theme.colors.text_detail};
   bottom: -13px;
+  text-transform: uppercase;
 `;
 export const Price = styled.Text`
   font-size: ${RFValue(15)}px;
   font-family: ${({ theme }) => theme.fonts.secondary_500};
   color: ${({ theme }) => theme.colors.main};
+  margin-right: 24px;
 `;
 
 export const InfoWrapper = styled.View`
   flex-direction: row;
-  justify-content: space-between;
   align-items: center;
 `;

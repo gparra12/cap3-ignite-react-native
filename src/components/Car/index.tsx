@@ -19,34 +19,55 @@ import {
   InfoWrapper,
 } from "./styles";
 
-export function Car() {
+interface CarProps {
+  brand: string;
+  name: string;
+  rent: {
+    period: string;
+    price: number;
+  };
+  type: "fuel" | "eletric";
+  carImage: string;
+}
+
+interface Props {
+  data: CarProps;
+}
+
+export function Car({ data }: Props) {
   return (
     <Container>
       <CarDetail>
         <CarInfos>
-          <Brand>AUDI</Brand>
-          <CarName>RS 5 Coupé</CarName>
+          <Brand>{data.brand}</Brand>
+          <CarName>{data.name}</CarName>
         </CarInfos>
         <Infos>
-          <CarPrice>AO DIA {"\n"}</CarPrice>
+          <CarPrice>
+            {data.rent.period} {"\n"}
+          </CarPrice>
           <InfoWrapper>
-            <Price>R$ 340</Price>
-            {/* <CarTypeEnergy
-            width={RFValue(17)}
-            height={RFValue(22)}
-            color="#AEAEB3"
-          /> */}
-            <CarTypeGasoline
-              width={RFValue(17)}
-              height={RFValue(22)}
-              color={"#AEAEB3"}
-            />
+            <Price>R$ {data.rent.price}</Price>
+            {data.type === "fuel" ? (
+              <CarTypeGasoline
+                width={RFValue(17)}
+                height={RFValue(22)}
+                color={"#AEAEB3"}
+              />
+            ) : (
+              <CarTypeEnergy
+                width={RFValue(17)}
+                height={RFValue(22)}
+                color="#AEAEB3"
+              />
+            )}
           </InfoWrapper>
         </Infos>
       </CarDetail>
       <Image
-        source={require("../../assets/Audi.png")}
-        style={{ width: 160, height: 92 }}
+        source={{ uri: data.carImage }}
+        style={{ width: 250, height: 200 }}
+        resizeMode="contain"
       />
     </Container>
   );
