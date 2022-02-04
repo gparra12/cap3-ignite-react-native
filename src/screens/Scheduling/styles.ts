@@ -23,6 +23,8 @@ export const Header = styled.View`
   justify-content: center;
   padding: 25px;
   padding-top: ${getStatusBarHeight() + RFValue(30)}px;
+
+  margin-bottom: 33px;
 `;
 
 export const Title = styled.Text`
@@ -69,28 +71,13 @@ export const DateValue = styled.Text`
   font-size: ${RFValue(15)}px;
 `;
 
-export const Content = styled.View`
-  flex: 1;
-`;
-
-export const DateWrapper = styled.View`
-  width: 100%;
-
-  align-items: center;
-  flex-direction: row;
-  justify-content: space-between;
-
-  padding: 33px 24px;
-`;
-
-export const Date = styled.Text`
-  color: ${({ theme }) => theme.colors.text};
-  font-family: ${({ theme }) => theme.fonts.secondary_600};
-  font-size: ${RFValue(20)}px;
-`;
+export const Content = styled.ScrollView.attrs({
+  contentContainerStyle: {
+    paddingBottom: 24,
+  },
+  showsVerticalScrollIndicator: false,
+})``;
 
 export const Footer = styled.View`
-  width: 100%;
-
   padding: 24px 24px ${getBottomSpace() + 24}px;
 `;

@@ -6,7 +6,7 @@ import { useTheme } from "styled-components";
 import ArrowSvg from "../../assets/arrow.svg";
 import { BackButton } from "../../components/BackButton";
 import { Button } from "../../components/Button";
-import { MaterialIcons } from "@expo/vector-icons";
+import { Calendar } from "../../components/Calendar";
 
 import {
   Container,
@@ -18,8 +18,6 @@ import {
   DateValueContainer,
   DateValue,
   Content,
-  Date,
-  DateWrapper,
   Footer,
 } from "./styles";
 
@@ -56,20 +54,9 @@ export function Scheduling() {
           </DateInfo>
         </RentalPeriod>
       </Header>
+
       <Content>
-        <DateWrapper>
-          <MaterialIcons
-            name="chevron-left"
-            size={30}
-            color={theme.colors.text}
-          />
-          <Date>Julho 2021</Date>
-          <MaterialIcons
-            name="chevron-right"
-            size={30}
-            color={theme.colors.text}
-          />
-        </DateWrapper>
+        <Calendar />
       </Content>
 
       <Footer>

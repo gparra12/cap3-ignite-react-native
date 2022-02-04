@@ -4,6 +4,7 @@ export default {
 
     background_primary: "#F4F5F6",
     background_secondary: "#FFFFFF",
+    background: "#1B1B1F",
 
     text: "#7A7A80",
     text_detail: "#AEAEB3",
@@ -16,8 +17,8 @@ export default {
 
     success: "#03B252",
 
-    shape: "#E1E1E8",
-    shape_dark: "29292E",
+    shape: "#FFFFFF",
+    shape_dark: "#29292E",
   },
 
   fonts: {
