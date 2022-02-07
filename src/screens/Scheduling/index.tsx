@@ -1,5 +1,6 @@
 import React from "react";
 
+import { useNavigation } from "@react-navigation/native";
 import { StatusBar } from "react-native";
 import { useTheme } from "styled-components";
 
@@ -23,6 +24,11 @@ import {
 
 export function Scheduling() {
   const theme = useTheme();
+  const navigation = useNavigation<any>();
+
+  function handleNavigateSchedulingDetails() {
+    navigation.navigate("SchedulingDetails");
+  }
   return (
     <Container>
       <StatusBar
@@ -60,7 +66,11 @@ export function Scheduling() {
       </Content>
 
       <Footer>
-        <Button color={theme.colors.main} text="Confirmar" />
+        <Button
+          color={theme.colors.main}
+          text="Confirmar"
+          onPress={handleNavigateSchedulingDetails}
+        />
       </Footer>
     </Container>
   );

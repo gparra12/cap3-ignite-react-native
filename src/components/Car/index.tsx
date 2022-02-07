@@ -18,6 +18,7 @@ import {
   Price,
   InfoWrapper,
 } from "./styles";
+import { RectButtonProps } from "react-native-gesture-handler";
 
 interface CarProps {
   brand: string;
@@ -30,13 +31,13 @@ interface CarProps {
   carImage: string;
 }
 
-interface Props {
+interface Props extends RectButtonProps {
   data: CarProps;
 }
 
-export function Car({ data }: Props) {
+export function Car({ data, ...rest }: Props) {
   return (
-    <Container>
+    <Container {...rest}>
       <CarDetail>
         <CarInfos>
           <Brand>{data.brand}</Brand>

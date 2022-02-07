@@ -6,37 +6,21 @@ import styled from "styled-components/native";
 export const Container = styled.View`
   flex: 1;
   background-color: ${({ theme }) => theme.colors.background};
-`;
 
-export const Header = styled.View`
-  margin-top: ${getStatusBarHeight() + RFValue(50)}px;
-  align-items: center;
+  padding-top: ${getStatusBarHeight() + RFValue(50)}px;
 `;
-
-export const Status = styled.View`
-  width: 100%;
+export const Content = styled.View`
+  flex: 1;
   justify-content: center;
   align-items: center;
-`;
-
-export const StatusIndicator = styled.View`
-  border-width: 7px;
-  border-color: ${({ theme }) => theme.colors.shape_dark};
-  width: 60px;
-  height: 67px;
-  justify-content: center;
-  align-items: center;
-`;
-
-export const RealStatus = styled.Text`
-  color: white;
+  padding-top: 16px;
 `;
 
 export const Title = styled.Text`
   color: ${({ theme }) => theme.colors.shape};
   font-family: ${({ theme }) => theme.fonts.secondary_600};
   font-size: ${RFValue(30)}px;
-  padding-top: 47px;
+  margin-top: 40px;
 `;
 
 export const SubTitle = styled.Text`
@@ -44,7 +28,8 @@ export const SubTitle = styled.Text`
   font-family: ${({ theme }) => theme.fonts.primary_400};
   font-size: ${RFValue(15)}px;
   text-align: center;
-  padding-top: 16;
+  line-height: ${RFValue(25)}px;
+  padding-top: 16px;
 `;
 export const Footer = styled.View`
   flex: 1;

@@ -1,24 +1,28 @@
 import React from "react";
 
-import { StatusBar } from "react-native";
-import BrandSvg from "../../assets/brand.svg";
+import { StatusBar, useWindowDimensions } from "react-native";
+import BrandSvg from "../../assets/logo_background_gray.svg";
+import DoneSvg from "../../assets/done.svg";
+
+import { useNavigation } from "@react-navigation/native";
 
 import {
   Container,
-  Header,
-  Status,
-  StatusIndicator,
-  RealStatus,
+  Content,
   Title,
   SubTitle,
   Footer,
   OkayButton,
   OkayButtonText,
 } from "./styles";
-import { useTheme } from "styled-components";
 
 export function SchedulingComplete() {
-  const theme = useTheme();
+  const { width } = useWindowDimensions();
+  const navigation = useNavigation<any>();
+
+  function handleNavigateHome() {
+    navigation.navigate("Home");
+  }
   return (
     <Container>
       <StatusBar
@@ -26,22 +30,19 @@ export function SchedulingComplete() {
         backgroundColor="transparent"
         translucent
       />
-      <Header>
-        <BrandSvg width={1000} height={300} color={theme.colors.text} />
-      </Header>
-      <Status>
-        <StatusIndicator>
-          <RealStatus>OK</RealStatus>
-        </StatusIndicator>
+      <BrandSvg width={width} />
+
+      <Content>
+        <DoneSvg width={100} height={100} />
         <Title>Carro alugado!</Title>
         <SubTitle>
           Agora você só precisa ir{"\n"}
           até a concessionária da RENTX{"\n"}
           pegar o seu automóvel.
         </SubTitle>
-      </Status>
+      </Content>
       <Footer>
-        <OkayButton>
+        <OkayButton onPress={handleNavigateHome}>
           <OkayButtonText>OK</OkayButtonText>
         </OkayButton>
       </Footer>

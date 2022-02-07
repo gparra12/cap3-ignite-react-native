@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigation } from "@react-navigation/native";
 
 import { Accessory } from "../../components/Accessory";
 import { BackButton } from "../../components/BackButton";
@@ -31,6 +32,12 @@ import { Button } from "../../components/Button";
 import { useTheme } from "styled-components";
 
 export function CarDetails() {
+  const navigation = useNavigation<any>();
+
+  function handleNavigateScheduling() {
+    navigation.navigate("Scheduling");
+  }
+
   const theme = useTheme();
   return (
     <Container>
@@ -70,7 +77,11 @@ export function CarDetails() {
         </About>
       </Content>
       <Footer>
-        <Button color={theme.colors.main} text="Escolher período do aluguel" />
+        <Button
+          color={theme.colors.main}
+          text="Escolher período do aluguel"
+          onPress={handleNavigateScheduling}
+        />
       </Footer>
     </Container>
   );
